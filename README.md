@@ -1,140 +1,102 @@
-## AWS Critical Thinking Project: Modernizing Infrastructure for an E-commerce Startup
-Project Overview
-In this project, we will evaluate AWS Lambda and AWS Elastic Beanstalk as hosting solutions for a small e-commerce startup's website. The goal is to deploy an existing website onto both platforms, analyze their performance and scalability, and provide recommendations based on cost implications and operational efficiency.
+# sample of the static website that contain HTML, CSS, and JavaScript files to simulate a typical web application.
 
-# Project Goals
+![image](https://github.com/user-attachments/assets/ebe2e693-bdc8-48d5-9b0c-d6d3c432ab9a)
 
- ### 1. Research and Obtain a Sample Website:
 
-## Find a simple static website template that includes HTML, CSS, and JavaScript files.
-### 2. Deploy the Website on AWS Lambda:
+# Deploy Web Server on AWS Lambda.
 
-Set up an AWS Lambda function to host the website.
-### 3. Deploy the Website on Elastic Beanstalk:
+## Notable screenshoot of the process on AWS LAMBDA
+![image](https://github.com/user-attachments/assets/3a607be5-ae74-4784-9c44-f068e4c7a246)
 
-Use AWS Elastic Beanstalk to deploy the same website.
-### 4. Performance and Scalability Comparison:
+![image](https://github.com/user-attachments/assets/27098efe-a115-404a-b722-ffac3e27d916)
 
-Monitor and compare the performance and scalability of both deployments.
-### 5. Cost Analysis:
 
-Analyze the cost implications of using AWS Lambda versus Elastic Beanstalk.
- ### 6. Resource Cleanup:
 
-Ensure that all resources are deleted after the project is complete.
-### 7. Documentation:
+![image](https://github.com/user-attachments/assets/5e8002aa-d7dd-4273-a015-2dc236002004)
 
-Document the entire project in markdown format and create a GitHub repository to store the documentation.
 
-## Step 1: Obtain a Sample Website
-Template Source : Use a simple static website template, such as one from HTML5UP or Bootstrap.
+![image](https://github.com/user-attachments/assets/b3b59345-e19c-42a3-8d17-95590477f7d7)
 
-Files Included: Ensure the template includes:
-index.html
-CSS files
-JavaScript files
-Directory Structure:
-bash
-Copy code
-/sample-website
-├── index.html
-├── css
-│   └── styles.css
-└── js
-    └── script.js
-## Step 2: Deploy on AWS Lambda
-Set Up AWS Lambda:
+![image](https://github.com/user-attachments/assets/9835af5a-0079-486f-82ad-8b62778fb19f)
 
-Go to the AWS Management Console and navigate to Lambda.
-Create a new Lambda function.
-Choose the "Author from scratch" option and configure the function name, runtime (Node.js), and permissions.
-Configure API Gateway:
 
-Set up API Gateway to trigger the Lambda function.
-Create a new API, define a resource, and connect it to the Lambda function.
-Upload Website Files:
 
-Package your website files (HTML, CSS, JS) into a ZIP file.
-Update the Lambda function to serve static files. You can use a package like serverless-http to help serve the static files.
-Test the Deployment:
 
-Access the API Gateway endpoint to verify that the website is live.
-## Step 3: Deploy on Elastic Beanstalk
-Set Up Elastic Beanstalk:
 
-Navigate to Elastic Beanstalk in the AWS Management Console.
-Create a new application and environment. Choose "Web server environment" and select the platform (Node.js or PHP, depending on your stack).
-Upload Website Files:
 
-Zip the same website files and upload them to Elastic Beanstalk during the environment creation process.
-Monitor Deployment:
 
-Wait for Elastic Beanstalk to launch the environment and verify the website is accessible via the provided URL.
+# Deploy Web Server on Elastic Beanstalk
 
-## Step 4: Performance and Scalability Comparison
-Monitoring Tools: Use AWS CloudWatch to monitor metrics such as:
-Request count
-Latency
-Errors
-Load Testing: Use tools like Apache JMeter or k6 to simulate traffic and evaluate how each solution handles scaling.
+## NOTABLE SCREENSHOOT/PROCESS OF DEPLOYING WEBSERVER ON  Elastic Beanstalk
+![image](https://github.com/user-attachments/assets/74ba945b-f62b-43e4-951d-d938f1122173)
 
-## Step 5: Cost Analysis
-AWS Lambda Costs:
 
-Calculate costs based on:
-Number of requests
-Duration (time taken to execute the function)
-Use the AWS Pricing Calculator for accurate estimates.
-Elastic Beanstalk Costs:
+![image](https://github.com/user-attachments/assets/3ae57be3-d615-4374-b499-c40eddccb930)
 
-Calculate costs based on:
-EC2 instance types and hours of usage
-Data transfer costs
-Again, use the AWS Pricing Calculator for details.
 
-## Step 6: Resource Cleanup
-Delete Resources:
-Ensure that all AWS resources created for this project (Lambda functions, API Gateway, Elastic Beanstalk environments, etc.) are deleted to avoid ongoing costs.
+![image](https://github.com/user-attachments/assets/5af3ed54-ae4e-4737-8d86-e0aadc6e06ef)
 
-## Step 7: Documentation
-Create a Markdown File: Document each step of the process, including:
-Code snippets
-Configuration screenshots
-Performance results
-Cost analysis
-GitHub Repository:
-Create a GitHub repository and push the markdown file along with any relevant code.
-Example markdown structure:
-markdown
-Copy code
-# AWS Critical Thinking Project
+![image](https://github.com/user-attachments/assets/f3a3b9ec-6bef-4793-b4bf-fa6c60ba8a7d)
 
-## Project Overview
-[Overview of the project]
+![image](https://github.com/user-attachments/assets/326f86fd-0310-43db-9722-f7d27294e0c7)
 
-## Sample Website
-[Description and source of the website]
 
-## AWS Lambda Deployment
-[Instructions and screenshots]
 
-## Elastic Beanstalk Deployment
-[Instructions and screenshots]
+![alt text](<Screenshot (135).png>)
 
-## Performance Comparison
-[Results and analysis]
+# When comparing the performance, scalability, and cost implications of deploying a web server on AWS Lambda versus AWS Elastic Beanstalk, there are several key factors to consider. Here’s an analysis of each service based on these criteria:
 
-## Cost Analysis
-[Breakdown of costs]
+## Performance
 
-## Resource Cleanup
-[Steps taken]
+### AWS Lambda:
 
-## Conclusion
-[Final thoughts and recommendations]
+Execution Model: AWS Lambda is designed for event-driven applications. It scales automatically based on the number of incoming requests, with instances created on demand.
+Cold Starts: One downside is the "cold start" latency, which occurs when a Lambda function is invoked after being idle. This can lead to slower response times for the first few requests.
+Duration Limit: Each Lambda invocation can run for a maximum of 15 minutes. For long-running processes, this may not be suitable.
+### AWS Elastic Beanstalk:
+
+## Server Management:
+
+ Elastic Beanstalk allows you to manage your web server instances (e.g., EC2 instances) directly. This means you can optimize performance based on your specific needs.
+Consistent Performance: Since your application runs on dedicated instances, performance can be more predictable without the cold start issue.
+## Scaling: Elastic Beanstalk supports auto-scaling based on traffic load, allowing you to manage performance effectively during peak times.
+## Scalability
+
+AWS Lambda:
+
+### Automatic Scaling: Lambda automatically scales to handle requests without any configuration. Each request can be handled independently.
+Concurrency Limits: AWS imposes a default concurrency limit (1,000 concurrent executions per region), which can be increased upon request.
+AWS Elastic Beanstalk:
+
+Auto Scaling: Elastic Beanstalk can automatically scale the number of EC2 instances based on demand, allowing you to handle increased load by adding more instances.
+
+## Custom Scaling Policies: You can define scaling policies based on metrics like CPU usage or network traffic to optimize performance dynamically.
+
+## Cost Implications
+
+AWS Lambda:
+
+Pay-as-You-Go: Lambda pricing is based on the number of requests and the duration of execution, making it potentially more cost-effective for applications with variable workloads.
+Free Tier: AWS offers a free tier for Lambda, which can help reduce costs in the initial phases of deployment.
+Cost Control: For low-traffic applications, Lambda can be significantly cheaper since you only pay for what you use.
+AWS Elastic Beanstalk:
+
+EC2 Instance Costs: You pay for the EC2 instances you provision, as well as any associated resources (like load balancers, storage, etc.). Costs can add up quickly, especially if instances are running continuously.
+Reserved Instances: You can reduce costs by using Reserved Instances for long-term workloads, which can lead to significant savings compared to on-demand pricing.
+Monitoring Costs: Additional costs may arise from using services like Amazon RDS, Amazon S3, or CloudWatch for monitoring and logging.
 Conclusion
-By following this structured approach, you can effectively evaluate AWS Lambda and Elastic Beanstalk for hosting the e-commerce startup's website. The final recommendations should bebased  based on performance metrics, scalability options, and cost analysis derived from your findings.
 
+## Performance and Scalability:
+
+If your application is event-driven and has variable traffic patterns, AWS Lambda may be more suitable due to its automatic scaling and cost-effective model.
+For applications requiring consistent performance, complex state management, or long-running processes, AWS Elastic Beanstalk would be the better choice.
+Cost:
+
+AWS Lambda can be more cost-effective for applications with intermittent workloads, while Elastic Beanstalk may be more economical for steady, high-traffic applications if properly optimized with reserved instances.
+Recommendations
+For Event-Driven Applications: Use AWS Lambda.
+For Traditional Web Applications: Use AWS Elastic Beanstalk, especially if you need more control over the environment or plan to run stateful applications.
+Ultimately, the choice between AWS Lambda and Elastic Beanstalk should align with your application's specific needs and workload patterns.
 
 
 
